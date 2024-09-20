@@ -1,0 +1,14 @@
+
+az vm image list --architecture Arm64 --publisher Canonical --all --output table
+
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa
+
+cat /Users/derocox/.ssh/id_rsa.pub
+
+
+az group create --name recursosTalentoTech2024-linux-arm --location eastus
+
+az deployment group validate --resource-group recursosTalentoTech2024-linux-arm --template-file template-vm-linux.json 
+
+az deployment group create   --name deploymentV1   --resource-group recursosTalentoTech2024-linux-arm   --template-file template-vm-linux.json
+
